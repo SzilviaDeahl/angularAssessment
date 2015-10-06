@@ -28,5 +28,9 @@ app.controller('KittensController', ['$scope', function ($scope) {
     comments: [],
     likes: 10
   }
-  ]
-}])
+];
+  $scope.createKitten = function () {
+    $scope.kittens.push($scope.kitten)
+    $scope.kitten = {};
+  }
+}]);

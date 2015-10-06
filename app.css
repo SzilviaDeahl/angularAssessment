@@ -1,0 +1,9 @@
+.img-thumbnail {
+   width: 140px;
+   height: 140px;
+}
+
+.well {
+  background-color: lightblue;
+  overflow: hidden;
+}
