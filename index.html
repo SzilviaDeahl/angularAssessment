@@ -16,7 +16,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Kittens!</a>
+          <a class="navbar-brand" ui-sref="home">Kittens!</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
@@ -46,14 +46,18 @@
     </div> <!--container -->
     <div class='container-fluid' ng-repeat='kitten in kittens' ng-controller='KittensController'>
       <div class='well'>
-        <h4>Kitten Name: {{kitten.name}}</h4>
-        <img ng-src="{{kitten.image}}" alt="kitten" class='img-thumbnail'/>
+        <h4><a ui-sref='show' ng-click = 'showInfo = !showInfo'> Kitten Name: {{kitten.name}}</a></h4>
+        <a ui-sref='show'><img ng-src="{{kitten.image}}" alt="kitten" class='img-thumbnail' ng-click = 'showInfo = !showInfo'/></a>
+        <div  class = 'info' ng-show='showInfo'>
+          <p>{{kitten.bio}}</p>
+          <span>Likes: {{kitten.likes}}</span>
+        </div>
       </div>
     </div>
+    <div ui-view></div>
     <script type="text/javascript" src='bower_components/angular/angular.min.js'></script>
     <script type="text/javascript" src='app.js'></script>
-    <script type="text/javascript" src='KittensController.js'>
-
-    </script>
+    <script type="text/javascript" src='KittensController.js'></script>
+    <script type="text/javascript" src='bower_components/angular-ui-router/release/angular-ui-router.min.js'></script>
   </body>
 </html>
