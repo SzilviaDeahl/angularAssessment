@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html ng-app='myTracker'>
+<html ng-app ='Kittens'>
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href='bower_components/bootstrap/dist/css/bootstrap.min.css'>
     <title>Kittens!!</title>
   </head>
-  <body ng-controller='MainController'>
+  <body ng-controller = 'KittensController'>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
@@ -20,13 +19,14 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">New Kitten <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="#" ng-click='form = !form'>New Kitten <span class="sr-only">(current)</span></a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <div class='container'>
-      <form ng-show='showForm'>
+    {{1+3}}
+    <div class='container' ng-show='form'>
+      <form>
         <div class='form-group'>
           <label for='name'>Name</label>
           <input ng-model='post.name' id='name' class='form-control' type='text' nam='name' placeholder="Kitten's name">
@@ -44,7 +44,16 @@
         </div>
       </form>
     </div> <!--container -->
+    <div class='container-fluid' ng-repeat='kitten in kittens' ng-controller='KittensController'>
+      <div class='well'>
+        <h4>Kitten Name: {{kitten.name}}</h4>
+        <h4>Kitten Image: <img ng-src="{{kitten.image}}" alt="kitten" class='img-thumbnail'/></h4>
+      </div>
+    </div>
     <script type="text/javascript" src='bower_components/angular/angular.min.js'></script>
     <script type="text/javascript" src='app.js'></script>
+    <script type="text/javascript" src='KittensController.js'>
+
+    </script>
   </body>
 </html>
